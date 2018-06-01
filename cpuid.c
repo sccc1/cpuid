@@ -54,6 +54,9 @@
 #include <sched.h>
 #endif
 
+#ifdef __QNXNTO__
+#include <sys/neutrino.h>
+#endif
 typedef int   boolean;
 #define TRUE  1
 #define FALSE 0
@@ -6850,6 +6853,9 @@ real_setup(unsigned int  cpu,
 
          int  status;
          status = syscall(__NR_sched_setaffinity, 0, sizeof(mask), &mask);
+#elif __QNXNTO__
+         int  status;
+         status = ThreadCtl (_NTO_TCTL_RUNMASK,(void *) cpu );
 #else
          cpu_set_t  cpuset;
          CPU_ZERO(&cpuset);
@@ -6857,6 +6863,7 @@ real_setup(unsigned int  cpu,
          int  status;
          status = sched_setaffinity(0, sizeof(cpu_set_t), &cpuset);
 #endif
+
          if (status == -1) {
             if (cpu > 0) {
                if (errno == EINVAL) return -1;
