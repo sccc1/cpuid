@@ -1,0 +1,14 @@
+AMD: Ryzen/Zen (Q1 2017)
+
+These are not really future, but I have very little data on them:
+
+   Intel: Atom S12x9 (Briarwood) is based on Cedarview, but the Intel docs provide
+          no CPUID identification values.  And I can find no examples online.  Does
+          anyone know the CPUID family/model/steppings?
+   Intel: I can find no cpuid information on Atom C1000 or Z2000.
+          (Possibly they are (0,6),(2,7) or (0,6),(3,5)?)
+   AMD: Geneva (the Athlon II Neo counterpart of the Athlon II mobile Champlain, 
+                or the V-Series Champlain?) 
+               [not seen in any revision guides yet, though]
+   VIA: Nano 1000/2000 (Isaiah)
+   VIA: Nano 3000
